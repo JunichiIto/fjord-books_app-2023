@@ -192,6 +192,8 @@ ja:
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      error: エラー
+      validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
