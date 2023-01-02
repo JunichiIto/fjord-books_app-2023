@@ -81,6 +81,7 @@ group :test do
 end
 
 gem 'carrierwave'
-gem 'devise'
+# DeviseがTurboに対応するのを待つ
+gem 'devise', github: 'JunichiIto/devise', branch: 'tweak-for-turbo'
 gem 'devise-i18n'
 gem 'kaminari'
