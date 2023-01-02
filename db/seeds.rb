@@ -75,4 +75,43 @@ User.order(:id).each.with_index(1) do |user, n|
   user.avatar.attach(io: File.open(image_path), filename: 'avatar.png')
 end
 
+Report.destroy_all
+
+users = User.all.to_a
+times = Array.new(55) { Faker::Time.between(from: 5.days.ago, to: 1.day.ago) }.sort
+titles = <<TEXT.lines(chomp: true)
+初日報です
+CSS初級
+gitに苦戦
+lsコマンドむずすぎへん？
+自作サービスに着手
+ペアプロ申し込んでみた
+やっとRails
+Sinatraの勉強
+Markdownって便利
+RSpec始めました
+TEXT
+contents = <<TEXT.lines(chomp: true)
+自分が聴いだのは近頃途中でおもにないうでし。
+すなわち言葉か不明か反抗にしですて、事実末見識にきまってならなかっためにご談判の十月で知れうです。
+何だかひょろひょろは別に否によっているなば、私にも当時いっぱいなどあなたのお創設も若い得下さろるた。
+それも同年もっとその教育家というのの後がつけよただ。
+自己をところが岡田さんからしかしそうあるですのうでた。
+ほかでも単にして根ざしましないですますて。
+何しろはなはだなっば話もこうないます事ある。
+大分幾分お話を解るありやいるです事に黙っないです。
+しっかりの今度になってこの時でもっとも向いなかっなくと上るた事だ。
+深いませましがあまりご本場見るましものましなけれございます。
+TEXT
+Report.transaction do
+  55.times do |n|
+    time = times[n]
+    user = users.sample
+    title = titles.sample
+    content_length = [*1..3].sample
+    content = contents.sample(content_length).join("\n")
+    user.reports.create!(title: title, content: content, created_at: time, updated_at: time)
+  end
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output

@@ -1,0 +1,14 @@
+<h1><%= t('views.common.title_index', name: i18n_pluralize(Report.model_name.human)) %></h1>
+
+<div id="reports">
+  <% @reports.each do |report| %>
+    <%= render report %>
+    <p>
+      <%= link_to t('views.common.show', name: Report.model_name.human.downcase), report %>
+    </p>
+  <% end %>
+</div>
+
+<%= paginate @reports %>
+
+<%= link_to t('views.common.new', name: Report.model_name.human.downcase), new_report_path %>
