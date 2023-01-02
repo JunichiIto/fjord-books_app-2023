@@ -2,6 +2,8 @@
 
 <%= render @report %>
 
+<%= render 'reports/mentions', report: @report %>
+
 <%= render 'shared/comments', commentable: @report %>
 
 <div>
