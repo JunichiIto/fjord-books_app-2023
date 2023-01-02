@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 print '開発環境のデータをすべて削除して初期データを投入します。よろしいですか？[Y/n]: ' # rubocop:disable Rails/Output
-unless $stdin.gets.chomp.upcase == 'Y'
+unless $stdin.gets.chomp.casecmp('Y').zero?
   puts '中止しました。' # rubocop:disable Rails/Output
   return
 end
