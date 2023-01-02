@@ -211,6 +211,10 @@ ja:
     menu:
       menu: メニュー
       sign_in_as: "%{email} としてログイン中"
+  shared:
+    comments:
+      create: コメントする
+      no_comments: コメントはまだありません
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
