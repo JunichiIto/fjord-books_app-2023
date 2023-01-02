@@ -11,4 +11,6 @@
   <% end %>
 </div>
 
+<%= paginate @books %>
+
 <%= link_to t('views.common.new', name: Book.model_name.human.downcase), new_book_path %>
