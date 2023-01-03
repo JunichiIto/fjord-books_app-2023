@@ -44,7 +44,7 @@ class DeviseTest < ApplicationSystemTestCase
 
     # 登録情報の確認
     click_link 'ユーザ'
-    assert_css 'h1', text: 'ユーザ'
+    assert_css 'h1', text: 'ユーザの一覧'
     within '#users' do
       assert_text 'alice@example.com'
       assert_text 'アリス'
