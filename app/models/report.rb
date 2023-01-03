@@ -29,7 +29,7 @@ class Report < ApplicationRecord
   def save_mentions
     active_mentions.destroy_all
     content.to_s.scan(MENTION_REGEXP).uniq.each do |target_id|
-      if (target = Report.find_by(id: target_id))
+      if (target = Report.find_by(id: target_id)) && target != self
         mentioning_reports << target
       end
     end
