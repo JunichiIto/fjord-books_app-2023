@@ -2,3 +2,8 @@ inherit_gem:
   rubocop-fjord:
     - "config/rubocop.yml"
     - "config/rails.yml"
+
+# TODO: rubocop-fjordに反映させる
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
