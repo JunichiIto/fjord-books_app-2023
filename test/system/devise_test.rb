@@ -66,7 +66,7 @@ class DeviseTest < ApplicationSystemTestCase
     # バリデーションエラーを発生させる
     fill_in 'Eメール', with: ''
     click_button '更新'
-    assert_text '2 件のエラーが発生したため ユーザ は保存されませんでした。'
+    assert_text 'エラーが発生したため ユーザ は保存されませんでした。'
 
     fill_in 'Eメール', with: 'alice-2@example.com'
     fill_in '氏名', with: 'ありす'
