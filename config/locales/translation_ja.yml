@@ -8,7 +8,7 @@ ja:
       book:
         author: 著者
         memo: メモ
-        picture: 写真
+        picture: 画像
         title: 題名
       user:
         name: 氏名
