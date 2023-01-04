@@ -52,6 +52,7 @@ class BooksTest < ApplicationSystemTestCase
       assert_text 'jnchito'
       click_link 'この本を表示'
     end
+    assert_css 'h1', text: '本の詳細'
     click_button 'この本を削除'
     assert_text '本が削除されました。'
     within '#books' do

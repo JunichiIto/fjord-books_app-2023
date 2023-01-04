@@ -58,6 +58,7 @@ class ReportsTest < ApplicationSystemTestCase
       assert_text 'My first report'
       click_link 'この日報を表示'
     end
+    assert_css 'h1', text: '日報の詳細'
     click_button 'この日報を削除'
     assert_text '日報が削除されました。'
     within '#reports' do
