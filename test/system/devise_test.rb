@@ -34,6 +34,8 @@ class DeviseTest < ApplicationSystemTestCase
     assert_css 'h2', text: 'ログイン'
 
     # バリデーションエラーを発生させる
+    fill_in 'Eメール', with: 'alice@example.com'
+    fill_in 'パスワード', with: 'hogehoge'
     click_button 'ログイン'
     assert_text 'Eメールまたはパスワードが違います。'
 
