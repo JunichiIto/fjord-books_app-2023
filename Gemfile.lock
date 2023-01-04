@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/JunichiIto/devise.git
-  revision: c7ea85bcb3079bc907ce92a9f5c4cfe2882681e5
+  revision: 5d5be9a4f26b2eb5c41d835f0032470a6896bf98
   branch: tweak-for-turbo
   specs:
     devise (4.8.1)
