@@ -132,4 +132,20 @@ class DeviseTest < ApplicationSystemTestCase
     click_button 'パスワードを変更する'
     assert_text 'パスワードが正しく変更されました。'
   end
+
+  test 'delete account' do
+    visit root_path
+
+    fill_in 'Eメール', with: 'komagata@example.com'
+    fill_in 'パスワード', with: 'password'
+    click_button 'ログイン'
+    assert_text 'ログインしました。'
+
+    click_link 'アカウント編集'
+    accept_alert do
+      click_button 'アカウント削除'
+    end
+    assert_text 'アカウントを削除しました。またのご利用をお待ちしております。'
+    assert_current_path new_user_session_path
+  end
 end
