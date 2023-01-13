@@ -1,0 +1,211 @@
+/* Global */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 24px;
+  margin: 0;
+}
+
+body > *:first-child {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  --global-border-radius: 4px;
+  --nav-font-size: 14px;
+  --nav-margin-top: 24px;
+}
+
+p:empty {
+  display: none;
+}
+
+p:empty:first-child + * {
+  margin-top: 0;
+}
+
+/* Books Index */
+
+#books {
+  --book-width: 248px;
+  --book-padding: 12px;
+  --book-gap: 8px;
+  --book-font-size: 13px;
+  --book-line-height: 1.6;
+  --book-p-vertical-padding: 0.8em;
+  --book-border-width: 1px;
+  display: grid;
+  gap: var(--book-gap) calc(var(--book-gap) / 2);
+  grid-template-columns: repeat(auto-fill, var(--book-width) 0);
+  font-size: var(--book-font-size);
+  line-height: var(--book-line-height);
+  margin-bottom: var(--nav-margin-top);
+}
+
+#books > div {
+  border: solid var(--book-border-width) rgb(175, 175, 175);
+  padding: calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 2)) var(--book-padding) var(--book-padding);
+  border-radius: var(--global-border-radius);
+}
+
+#books > div > p {
+  margin: 0;
+  padding-top: var(--book-p-vertical-padding);
+  margin-bottom: var(--book-p-vertical-padding);
+  border-top: solid 1px rgb(236, 236, 236);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+#books > div > p:last-child {
+  margin-bottom: 0;
+}
+
+#books > div strong {
+  font-size: .9em;
+}
+
+#books > div strong + img {
+  max-height: 160px;
+  display: block;
+  margin: 4px auto 0;
+  object-fit: contain;
+}
+
+#books > p {
+  margin: var(--book-border-width) var(--book-border-width) 0;
+  padding: var(--book-p-vertical-padding) var(--book-padding);
+  position: relative;
+  left: calc(var(--book-width) * -1 - var(--book-gap));
+  width: calc(var(--book-width) - (var(--book-border-width) * 2));
+  height: calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 2));
+  white-space: nowrap;
+}
+
+#books + a {
+  font-size: var(--nav-font-size);
+}
+
+/* Book Show */
+
+body > div[id^="book_"] {
+  --book-width: 640px;
+  --book-padding: 24px;
+  --book-font-size: 14px;
+  --book-line-height: 1.6;
+  --book-p-vertical-padding: 1em;
+  --book-border-width: 1px;
+  max-width: var(--book-width);
+  display: block;
+  border: solid var(--book-border-width) rgb(175, 175, 175);
+  padding: var(--book-padding);
+  border-radius: var(--global-border-radius);
+  font-size: var(--book-font-size);
+  line-height: var(--book-line-height);
+}
+
+body > div[id^="book_"] p {
+  margin: 0;
+  padding: var(--book-p-vertical-padding) 0;
+  border-top: solid 1px rgb(236, 236, 236);
+}
+
+body > div[id^="book_"] p:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+body > div[id^="book_"] p:last-child {
+  padding-bottom: 0;
+}
+
+body > div[id^="book_"] p strong {
+  font-size: .9em;
+}
+
+body > div[id^="book_"] img {
+  max-height: 400px;
+  display: block;
+  margin: 12px auto 0;
+  object-fit: contain;
+}
+
+body > div[id^="book_"]  + div {
+  font-size: var(--nav-font-size);
+  margin-top: var(--nav-margin-top);
+}
+
+body > div[id^="book_"]  + div .button_to {
+  margin-top: var(--nav-margin-top);
+}
+
+/* Book New and Edit */
+
+form[action^="/books"] {
+  --book-form-width: 640px;
+  --book-form-padding: 24px;
+  --book-form-line-height: 1.6;
+  --book-form-div-margin: 1em;
+  --main-button-font-size: 16px;
+  --main-button-width: 160px;
+  --main-button-height: 44px;
+  --main-button-margin-top: 24px;
+  max-width: var(--book-form-width);
+}
+
+form[action^="/books"] div:not(:first-child) {
+  margin-top: var(--book-form-div-margin);
+  line-height: var(--book-form-line-height);
+}
+
+form[action^="/books"] div:last-child {
+  margin-top: var(--main-button-margin-top);
+}
+
+form[action^="/books"] + br + div {
+  font-size: var(--nav-font-size);
+}
+
+form[action^="/books"] label {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+form[action^="/books"] input[type="text"],
+form[action^="/books"] textarea {
+  width: 100%;
+  padding: 6px;
+  line-height: inherit;
+  border: solid 1px rgb(175, 175, 175);
+  border-radius: var(--global-border-radius);
+}
+
+form[action^="/books"] textarea {
+  height: 200px;
+}
+
+form[action^="/books"] input[type="submit"] {
+  font-size: var(--main-button-font-size);
+  min-width: var(--main-button-width);
+  height: var(--main-button-height);
+}
+
+form[action^="/books"] + br {
+  display: none;
+}
+
+form[action^="/books"] + br + div {
+  margin-top: var(--nav-margin-top);
+}
