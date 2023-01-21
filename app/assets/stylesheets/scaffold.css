@@ -19,6 +19,11 @@ body > *:first-child {
   margin-top: 0;
 }
 
+input,
+textarea {
+  font-family: inherit;
+}
+
 img {
   max-width: 100%;
 }
@@ -40,34 +45,34 @@ p:empty:first-child + * {
 /* Index */
 
 h1 + div[id] {
-  --book-width: 248px;
-  --book-padding: 12px;
-  --book-gap: 8px;
-  --book-font-size: 13px;
-  --book-line-height: 1.6;
-  --book-p-vertical-padding: 0.8em;
-  --book-border-width: 1px;
+  --index-item-width: 248px;
+  --index-item-padding: 12px;
+  --index-item-gap: 8px;
+  --index-item-font-size: 13px;
+  --index-item-line-height: 1.6;
+  --index-item-p-vertical-padding: 0.8em;
+  --index-item-border-width: 1px;
   display: grid;
-  gap: var(--book-gap) calc(var(--book-gap) / 2);
-  grid-template-columns: repeat(auto-fill, var(--book-width) 0);
-  font-size: var(--book-font-size);
-  line-height: var(--book-line-height);
+  gap: var(--index-item-gap) calc(var(--index-item-gap) / 2);
+  grid-template-columns: repeat(auto-fill, var(--index-item-width) 0);
+  font-size: var(--index-item-font-size);
+  line-height: var(--index-item-line-height);
   margin-bottom: var(--nav-margin-top);
 }
 
 h1 + div[id] > div {
-  border: solid var(--book-border-width) rgb(175, 175, 175);
+  border: solid var(--index-item-border-width) rgb(175, 175, 175);
   padding:
-    var(--book-padding)
-    var(--book-padding)
-    calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 3));
+    var(--index-item-padding)
+    var(--index-item-padding)
+    calc(var(--index-item-font-size) * var(--index-item-line-height) + (var(--index-item-p-vertical-padding) * 3));
   border-radius: var(--global-border-radius);
 }
 
 h1 + div[id] > div > p {
   margin: 0;
-  padding-top: var(--book-p-vertical-padding);
-  margin-bottom: var(--book-p-vertical-padding);
+  padding-top: var(--index-item-p-vertical-padding);
+  margin-bottom: var(--index-item-p-vertical-padding);
   border-top: solid 1px rgb(236, 236, 236);
   overflow: hidden;
   display: -webkit-box;
@@ -96,12 +101,12 @@ h1 + div[id] > div strong + img {
 }
 
 h1 + div[id] > p {
-  margin: var(--book-border-width) var(--book-border-width) 0;
-  padding: var(--book-p-vertical-padding) var(--book-padding);
+  margin: var(--index-item-border-width) var(--index-item-border-width) 0;
+  padding: var(--index-item-p-vertical-padding) var(--index-item-padding);
   position: relative;
-  left: calc((var(--book-width) * -1) - (var(--book-gap) / 2));
-  width: calc(var(--book-width) - (var(--book-border-width) * 2));
-  height: calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 2));
+  left: calc((var(--index-item-width) * -1) - (var(--index-item-gap) / 2));
+  width: calc(var(--index-item-width) - (var(--index-item-border-width) * 2));
+  height: calc(var(--index-item-font-size) * var(--index-item-line-height) + (var(--index-item-p-vertical-padding) * 2));
   white-space: nowrap;
   align-self: flex-end;
   text-align: right;
@@ -114,24 +119,24 @@ h1 + div[id] + a {
 /* Show */
 
 body > p + div[id] {
-  --book-width: 640px;
-  --book-padding: 24px;
-  --book-font-size: 14px;
-  --book-line-height: 1.6;
-  --book-p-vertical-padding: 1em;
-  --book-border-width: 1px;
-  max-width: var(--book-width);
+  --show-item-width: 640px;
+  --show-item-padding: 24px;
+  --show-item-font-size: 14px;
+  --show-item-line-height: 1.6;
+  --show-item-p-vertical-padding: 1em;
+  --show-item-border-width: 1px;
+  max-width: var(--show-item-width);
   display: block;
-  border: solid var(--book-border-width) rgb(175, 175, 175);
-  padding: var(--book-padding);
+  border: solid var(--show-item-border-width) rgb(175, 175, 175);
+  padding: var(--show-item-padding);
   border-radius: var(--global-border-radius);
-  font-size: var(--book-font-size);
-  line-height: var(--book-line-height);
+  font-size: var(--show-item-font-size);
+  line-height: var(--show-item-line-height);
 }
 
 body >  p + div[id] p {
   margin: 0;
-  padding: var(--book-p-vertical-padding) 0;
+  padding: var(--show-item-p-vertical-padding) 0;
   border-top: solid 1px rgb(236, 236, 236);
 }
 
@@ -167,20 +172,20 @@ body >  p + div[id] + div .button_to {
 /* New and Edit */
 
 form {
-  --book-form-width: 640px;
-  --book-form-padding: 24px;
-  --book-form-line-height: 1.6;
-  --book-form-div-margin: 1em;
+  --form-width: 640px;
+  --form-padding: 24px;
+  --form-line-height: 1.6;
+  --form-div-margin: 1em;
   --main-button-font-size: 16px;
   --main-button-width: 160px;
   --main-button-height: 44px;
   --main-button-margin-top: 24px;
-  max-width: var(--book-form-width);
+  max-width: var(--form-width);
 }
 
 form div:not(:first-child) {
-  margin-top: var(--book-form-div-margin);
-  line-height: var(--book-form-line-height);
+  margin-top: var(--form-div-margin);
+  line-height: var(--form-line-height);
 }
 
 form div:last-child {
