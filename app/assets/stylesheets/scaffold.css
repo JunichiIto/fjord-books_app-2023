@@ -1,9 +1,13 @@
 /* Global */
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
 }
 
 body {
@@ -33,9 +37,9 @@ p:empty:first-child + * {
   margin-top: 0;
 }
 
-/* Books Index */
+/* Index */
 
-#books {
+h1 + div[id] {
   --book-width: 248px;
   --book-padding: 12px;
   --book-gap: 8px;
@@ -51,13 +55,16 @@ p:empty:first-child + * {
   margin-bottom: var(--nav-margin-top);
 }
 
-#books > div {
+h1 + div[id] > div {
   border: solid var(--book-border-width) rgb(175, 175, 175);
-  padding: calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 2)) var(--book-padding) var(--book-padding);
+  padding:
+    var(--book-padding)
+    var(--book-padding)
+    calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 3));
   border-radius: var(--global-border-radius);
 }
 
-#books > div > p {
+h1 + div[id] > div > p {
   margin: 0;
   padding-top: var(--book-p-vertical-padding);
   margin-bottom: var(--book-p-vertical-padding);
@@ -68,38 +75,45 @@ p:empty:first-child + * {
   -webkit-line-clamp: 6;
 }
 
-#books > div > p:last-child {
+h1 + div[id] > div > p:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+h1 + div[id] > div > p:last-child {
   margin-bottom: 0;
 }
 
-#books > div strong {
+h1 + div[id] > div strong {
   font-size: .9em;
 }
 
-#books > div strong + img {
+h1 + div[id] > div strong + img {
   max-height: 160px;
   display: block;
   margin: 4px auto 0;
   object-fit: contain;
 }
 
-#books > p {
+h1 + div[id] > p {
   margin: var(--book-border-width) var(--book-border-width) 0;
   padding: var(--book-p-vertical-padding) var(--book-padding);
   position: relative;
-  left: calc(var(--book-width) * -1 - var(--book-gap));
+  left: calc((var(--book-width) * -1) - (var(--book-gap) / 2));
   width: calc(var(--book-width) - (var(--book-border-width) * 2));
   height: calc(var(--book-font-size) * var(--book-line-height) + (var(--book-p-vertical-padding) * 2));
   white-space: nowrap;
+  align-self: flex-end;
+  text-align: right;
 }
 
-#books + a {
+h1 + div[id] + a {
   font-size: var(--nav-font-size);
 }
 
-/* Book Show */
+/* Show */
 
-body > div[id^="book_"] {
+body > p + div[id] {
   --book-width: 640px;
   --book-padding: 24px;
   --book-font-size: 14px;
@@ -115,44 +129,44 @@ body > div[id^="book_"] {
   line-height: var(--book-line-height);
 }
 
-body > div[id^="book_"] p {
+body >  p + div[id] p {
   margin: 0;
   padding: var(--book-p-vertical-padding) 0;
   border-top: solid 1px rgb(236, 236, 236);
 }
 
-body > div[id^="book_"] p:first-child {
+body >  p + div[id] p:first-child {
   padding-top: 0;
   border-top: none;
 }
 
-body > div[id^="book_"] p:last-child {
+body >  p + div[id] p:last-child {
   padding-bottom: 0;
 }
 
-body > div[id^="book_"] p strong {
+body >  p + div[id] p strong {
   font-size: .9em;
 }
 
-body > div[id^="book_"] img {
+body >  p + div[id] img {
   max-height: 400px;
   display: block;
   margin: 12px auto 0;
   object-fit: contain;
 }
 
-body > div[id^="book_"]  + div {
+body >  p + div[id] + div {
   font-size: var(--nav-font-size);
   margin-top: var(--nav-margin-top);
 }
 
-body > div[id^="book_"]  + div .button_to {
+body >  p + div[id] + div .button_to {
   margin-top: var(--nav-margin-top);
 }
 
-/* Book New and Edit */
+/* New and Edit */
 
-form[action^="/books"] {
+form {
   --book-form-width: 640px;
   --book-form-padding: 24px;
   --book-form-line-height: 1.6;
@@ -164,27 +178,27 @@ form[action^="/books"] {
   max-width: var(--book-form-width);
 }
 
-form[action^="/books"] div:not(:first-child) {
+form div:not(:first-child) {
   margin-top: var(--book-form-div-margin);
   line-height: var(--book-form-line-height);
 }
 
-form[action^="/books"] div:last-child {
+form div:last-child {
   margin-top: var(--main-button-margin-top);
 }
 
-form[action^="/books"] + br + div {
+form + br + div {
   font-size: var(--nav-font-size);
 }
 
-form[action^="/books"] label {
+form label {
   font-size: 0.8em;
   font-weight: bold;
   margin-bottom: 0.25em;
 }
 
-form[action^="/books"] input[type="text"],
-form[action^="/books"] textarea {
+form input[type="text"],
+form textarea {
   width: 100%;
   padding: 6px;
   line-height: inherit;
@@ -192,20 +206,20 @@ form[action^="/books"] textarea {
   border-radius: var(--global-border-radius);
 }
 
-form[action^="/books"] textarea {
+form textarea {
   height: 200px;
 }
 
-form[action^="/books"] input[type="submit"] {
+form input[type="submit"] {
   font-size: var(--main-button-font-size);
   min-width: var(--main-button-width);
   height: var(--main-button-height);
 }
 
-form[action^="/books"] + br {
+form + br {
   display: none;
 }
 
-form[action^="/books"] + br + div {
+form + br + div {
   margin-top: var(--nav-margin-top);
 }
