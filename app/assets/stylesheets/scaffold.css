@@ -44,7 +44,7 @@ p:empty:first-child + * {
 
 /* Index */
 
-h1 + div[id] {
+body.index > div[id] {
   --index-item-width: 248px;
   --index-item-padding: 12px;
   --index-item-gap: 8px;
@@ -60,7 +60,7 @@ h1 + div[id] {
   margin-bottom: var(--nav-margin-top);
 }
 
-h1 + div[id] > div {
+body.index > div[id] > div {
   border: solid var(--index-item-border-width) rgb(175, 175, 175);
   padding:
     var(--index-item-padding)
@@ -69,7 +69,7 @@ h1 + div[id] > div {
   border-radius: var(--global-border-radius);
 }
 
-h1 + div[id] > div > p {
+body.index > div[id] > div > p {
   margin: 0;
   padding-top: var(--index-item-p-vertical-padding);
   margin-bottom: var(--index-item-p-vertical-padding);
@@ -80,27 +80,27 @@ h1 + div[id] > div > p {
   -webkit-line-clamp: 6;
 }
 
-h1 + div[id] > div > p:first-child {
+body.index > div[id] > div > p:first-child {
   padding-top: 0;
   border-top: none;
 }
 
-h1 + div[id] > div > p:last-child {
+body.index > div[id] > div > p:last-child {
   margin-bottom: 0;
 }
 
-h1 + div[id] > div strong {
+body.index > div[id] > div strong {
   font-size: .9em;
 }
 
-h1 + div[id] > div strong + img {
+body.index > div[id] > div strong + img {
   max-height: 160px;
   display: block;
   margin: 4px auto 0;
   object-fit: contain;
 }
 
-h1 + div[id] > p {
+body.index > div[id] > p {
   margin: var(--index-item-border-width) var(--index-item-border-width) 0;
   padding: var(--index-item-p-vertical-padding) var(--index-item-padding);
   position: relative;
@@ -112,13 +112,13 @@ h1 + div[id] > p {
   text-align: right;
 }
 
-h1 + div[id] + a {
+body.index > div[id] + a {
   font-size: var(--nav-font-size);
 }
 
 /* Show */
 
-body > p + div[id] {
+body.show > div[id] {
   --show-item-width: 640px;
   --show-item-padding: 24px;
   --show-item-font-size: 14px;
@@ -134,38 +134,38 @@ body > p + div[id] {
   line-height: var(--show-item-line-height);
 }
 
-body >  p + div[id] p {
+body.show > div[id] p {
   margin: 0;
   padding: var(--show-item-p-vertical-padding) 0;
   border-top: solid 1px rgb(236, 236, 236);
 }
 
-body >  p + div[id] p:first-child {
+body.show > div[id] p:first-child {
   padding-top: 0;
   border-top: none;
 }
 
-body >  p + div[id] p:last-child {
+body.show > div[id] p:last-child {
   padding-bottom: 0;
 }
 
-body >  p + div[id] p strong {
+body.show > div[id] p strong {
   font-size: .9em;
 }
 
-body >  p + div[id] img {
+body.show > div[id] img {
   max-height: 400px;
   display: block;
   margin: 12px auto 0;
   object-fit: contain;
 }
 
-body >  p + div[id] + div {
+body.show > div[id] + div {
   font-size: var(--nav-font-size);
   margin-top: var(--nav-margin-top);
 }
 
-body >  p + div[id] + div .button_to {
+body.show > div[id] + div .button_to {
   margin-top: var(--nav-margin-top);
 }
 
