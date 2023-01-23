@@ -42,6 +42,14 @@ p:empty:first-child + * {
   margin-top: 0;
 }
 
+#notice {
+  color: green;
+}
+
+#alert, #error_explanation {
+  color: red;
+}
+
 /* Index */
 
 body.index > div[id] {
