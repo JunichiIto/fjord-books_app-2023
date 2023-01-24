@@ -13,7 +13,7 @@ class OAuthTest < ApplicationSystemTestCase
     assert_css 'h2', text: 'ログイン'
     click_button 'GitHubでログイン'
     assert_text 'GitHub アカウントによる認証に成功しました。'
-    assert_text 'alice@example.com としてログイン中'
+    assert_text 'Alice としてログイン中'
     click_link 'ユーザ'
     assert_css 'h1', text: 'ユーザの一覧'
     within '#users' do
