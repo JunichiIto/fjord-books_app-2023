@@ -13,14 +13,18 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  after_save :save_mentions
-
   def editable?(target_user)
     user == target_user
   end
 
   def created_on
     created_at.to_date
+  end
+
+  def save_with_mentions
+    transaction do
+      save && save_mentions
+    end
   end
 
   private
@@ -32,5 +36,7 @@ class Report < ApplicationRecord
     Report.where(id: ids).find_each do |target|
       mentioning_reports.push(target) if target != self
     end
+
+    true
   end
 end
