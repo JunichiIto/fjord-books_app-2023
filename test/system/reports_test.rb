@@ -96,6 +96,7 @@ class ReportsTest < ApplicationSystemTestCase
       assert_text 'この日報に言及している日報はまだありません'
     end
 
+    # 新規作成
     visit new_report_path
     fill_in 'タイトル', with: 'Matzさんに感謝'
     fill_in '内容', with: <<~CONTENT
@@ -105,10 +106,39 @@ class ReportsTest < ApplicationSystemTestCase
     click_button '登録する'
     assert_text '日報が作成されました。'
 
+    my_report = Report.find_by(title: 'Matzさんに感謝')
+
     visit report_path(matz_report)
     within '.mentions-container' do
       assert_no_text 'この日報に言及している日報はまだありません'
       assert_link 'Matzさんに感謝'
+    end
+
+    machida_report = reports(:machida)
+    visit report_path(machida_report)
+    within '.mentions-container' do
+      assert_text 'この日報に言及している日報はまだありません'
+    end
+
+    # 更新
+    visit edit_report_path(my_report)
+    fill_in 'タイトル', with: 'machidaさんに感謝'
+    fill_in '内容', with: <<~CONTENT
+      この日報は最高でした。
+      http://localhost:3000/reports/#{machida_report.id}
+    CONTENT
+    click_button '更新する'
+    assert_text '日報が更新されました。'
+
+    visit report_path(matz_report)
+    within '.mentions-container' do
+      assert_text 'この日報に言及している日報はまだありません'
+    end
+
+    visit report_path(machida_report)
+    within '.mentions-container' do
+      assert_no_text 'この日報に言及している日報はまだありません'
+      assert_link 'machidaさんに感謝'
     end
   end
 end
