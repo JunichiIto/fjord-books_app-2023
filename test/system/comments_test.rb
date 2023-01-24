@@ -26,7 +26,9 @@ class CommentsTest < ApplicationSystemTestCase
       assert_text 'とても役に立ちました。'
       assert_button '削除', count: 1
 
-      click_button '削除'
+      accept_alert do
+        click_button '削除'
+      end
     end
 
     assert_text 'コメントが削除されました。'
@@ -57,7 +59,9 @@ class CommentsTest < ApplicationSystemTestCase
       assert_text 'とても役に立ちました。'
       assert_button '削除', count: 1
 
-      click_button '削除'
+      accept_alert do
+        click_button '削除'
+      end
     end
 
     assert_text 'コメントが削除されました。'
