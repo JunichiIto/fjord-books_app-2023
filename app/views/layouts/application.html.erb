@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= params[:action] %>">
     <% if user_signed_in? %>
       <div class="menu-container">
         <div class="title"><%= t('.menu') %></div>
