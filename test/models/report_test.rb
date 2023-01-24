@@ -40,7 +40,7 @@ class ReportTest < ActiveSupport::TestCase
     [komagata_report, matz_report, machida_report].each(&:reload)
     assert_equal [machida_report], komagata_report.mentioned_reports
     assert_equal [machida_report], matz_report.mentioned_reports
-    assert_equal [komagata_report, matz_report], machida_report.mentioning_reports
+    assert_equal [komagata_report, matz_report].sort, machida_report.mentioning_reports.sort
 
     # 更新時
     # - 削除されたURLは言及がなくなる
@@ -57,7 +57,7 @@ class ReportTest < ActiveSupport::TestCase
     [komagata_report, matz_report, machida_report].each(&:reload)
     assert_equal [], komagata_report.mentioned_reports
     assert_equal [machida_report], matz_report.mentioned_reports
-    assert_equal [matz_report].sort, machida_report.mentioning_reports.sort
+    assert_equal [matz_report], machida_report.mentioning_reports
 
     # 削除時
     # - 言及もなくなる
