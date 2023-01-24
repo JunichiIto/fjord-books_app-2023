@@ -210,10 +210,11 @@ ja:
   layouts:
     menu:
       menu: メニュー
-      sign_in_as: "%{email} としてログイン中"
+      sign_in_as: "%{user} としてログイン中"
   shared:
     comments:
       create: コメントする
+      delete: 削除
       no_comments: コメントはまだありません
   reports:
     mentions:
