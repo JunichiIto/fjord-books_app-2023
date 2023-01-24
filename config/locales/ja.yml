@@ -210,7 +210,7 @@ ja:
   layouts:
     application:
       menu: メニュー
-      sign_in_as: "%{email} としてログイン中"
+      sign_in_as: "%{user} としてログイン中"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
