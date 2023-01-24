@@ -28,10 +28,9 @@ class Report < ApplicationRecord
   MENTION_REGEXP = %r{http://localhost:3000/reports/(\d+)}
   def save_mentions
     active_mentions.destroy_all
-    content.to_s.scan(MENTION_REGEXP).uniq.each do |target_id|
-      if (target = Report.find_by(id: target_id)) && target != self
-        mentioning_reports << target
-      end
+    ids = content.to_s.scan(MENTION_REGEXP).flatten.uniq
+    Report.where(id: ids).find_each do |target|
+      mentioning_reports.push(target) if target != self
     end
   end
 end

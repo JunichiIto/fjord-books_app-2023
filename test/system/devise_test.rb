@@ -26,7 +26,7 @@ class DeviseTest < ApplicationSystemTestCase
     fill_in 'パスワード（確認用）', with: 'password'
     click_button 'アカウント登録'
     assert_text 'アカウント登録が完了しました。'
-    assert_text 'alice@example.com としてログイン中'
+    assert_text 'アリス としてログイン中'
 
     # ログアウトとログイン
     click_link 'ログアウト'
