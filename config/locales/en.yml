@@ -238,7 +238,7 @@ en:
   layouts:
     application:
       menu: Menu
-      sign_in_as: "Sign-in as %{email}"
+      sign_in_as: "Sign-in as %{user}"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
