@@ -82,7 +82,8 @@ group :test do
 end
 
 gem 'carrierwave'
-gem 'devise'
+gem "devise", github: "heartcombo/devise", branch: "ca-turbo"
+gem "responders", github: "heartcombo/responders", branch: "main"
 gem 'devise-i18n'
 gem 'kaminari'
 gem 'omniauth'
