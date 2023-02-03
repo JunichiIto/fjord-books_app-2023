@@ -1,8 +1,0 @@
-li form {
-    display: inline;
-}
-
-li form button[type="submit"] {
-    font-size: 11px;
-    padding: 1px;
-}
