@@ -165,6 +165,8 @@ menu-container
 
 .menu-container {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   align-items: center;
   border-bottom: solid var(--global-bw) var(--global-bc);
   padding-bottom: 16px;
@@ -175,6 +177,7 @@ menu-container
   margin: 0;
   padding-inline-start: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--global-block-gap);
 }
@@ -182,11 +185,10 @@ menu-container
 .menu-container .title {
   font-weight: bold;
   font-size: var(--global-fz-md);
-  margin-right: 12px;
 }
 
 .menu-container .title:not(:first-of-type) {
-  margin-left: 44px;
+  margin-left: 32px;
 }
 
 .menu-container li a {
@@ -430,8 +432,13 @@ comments-container
   max-width: var(--single-column-w);
 }
 
+.comments-container p {
+  font-size: var(--global-fz-md);
+  line-height: 1.8;
+}
+
 .comments-container ul {
-  margin: 12px 0;
+  margin: 12px 0 0;
   padding-inline-start: 0;
   list-style: none;
 }
@@ -447,8 +454,13 @@ comments-container
   padding-top: 12px;
 }
 
+.comments-container li:last-of-type {
+  padding-bottom: 0;
+}
+
 .comments-container li small {
   display: block;
+  font-size: 12px;
   margin-top: 8px;
 }
 
@@ -462,7 +474,7 @@ comments-container
 }
 
 .comments-container form {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .comments-container input[type="submit"] {
@@ -477,4 +489,45 @@ pagination
   margin: 24px 0;
   display: flex;
   gap: var(--global-block-gap);
+}
+
+/****************
+mentions-container
+****************/
+
+.mentions-container {
+  margin-top: 32px;
+  max-width: var(--single-column-w);
+}
+
+.mentions-container p {
+  font-size: var(--global-fz-md);
+  line-height: 1.8;
+}
+
+.mentions-container ul {
+  margin: 12px 0 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.mentions-container li {
+  padding-bottom: 12px;
+  font-size: var(--global-fz-md);
+  line-height: 1.8;
+}
+
+.mentions-container li:not(:first-of-type) {
+  border-top: solid var(--global-bw) var(--global-bc-muted);
+  padding-top: 12px;
+}
+
+.mentions-container li:last-of-type {
+  padding-bottom: 0;
+}
+
+.mentions-container li small {
+  display: block;
+  font-size: 12px;
+  margin-top: 8px;
 }
