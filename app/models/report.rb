@@ -33,9 +33,8 @@ class Report < ApplicationRecord
   def save_mentions
     active_mentions.destroy_all
     ids = content.to_s.scan(MENTION_REGEXP).flatten.uniq
-    Report.where(id: ids).find_each do |target|
-      mentioning_reports.push(target) if target != self
-    end
+    reports = Report.where(id: ids).where.not(id:)
+    self.mentioning_reports += reports
 
     true
   end
