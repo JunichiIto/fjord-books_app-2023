@@ -4,7 +4,7 @@
 
 <br>
 
-<div>
+<nav class="page-nav">
   <%= link_to t('views.common.show', name: Book.model_name.human.downcase), @book %> |
   <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
-</div>
+</nav>
